@@ -2,6 +2,8 @@
 // game: Holds the main game
 // player: Holds player
 var game;
+
+
 var player;
 
 window.onload = function(){
@@ -24,11 +26,20 @@ function preload() {
   game.load.crossOrigin = true;
     
     
-      //Start our physics system, in this case the Arcade system
+    //Start our physics system, in this case the Arcade system
   //Arcade Physics is for high-speed collision only.
   //AABB means axis-aligned bounded rectangles;
   //it means you have objects without rotation, and you're only checking if the image (which is a rectangle) overlaps with another image.
   game.physics.startSystem(Phaser.Physics.ARCADE);
+    
+     //Set the bounds of the world seperate from the canvas size so we can scroll the screen
+  //Updates the size of this world and sets World.x/y to the given values
+  //The Camera bounds and Physics bounds (if set) are also updated to match the new World bounds.
+  //setBounds(x, y, width, height)
+  game.world.setBounds(0, 0, 2400, 900);
+    
+     // Setting Background Color
+    game.stage.backgroundColor = '#2d2d2d';
 
 }
 
